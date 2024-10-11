@@ -25,15 +25,7 @@
             text-align: center;
         }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
 
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
 
         .card {
             background-color: #fff;
@@ -85,7 +77,7 @@
         <div class="card">
             <h3>Ordens de Serviço</h3>
             <p>Abra novas ordens de serviço e gerencie as existentes.</p>
-            <a href="{% url 'ordem_servico_create' %}" class="btn btn-primary">Abrir Ordem de Serviço</a>
+            <a href="{% url 'ordem_servico_create' %}" class="btn btn-primary">Abrir Ordem de Serviço</a> <br>
             <a href="{% url 'ordem_servico_list' %}" class="btn btn-secondary">Ver Ordens de Serviço</a>
         </div>
 

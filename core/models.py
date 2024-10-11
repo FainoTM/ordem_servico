@@ -77,6 +77,7 @@ class Funcionario(models.Model):
     def __str__(self):
         return self.nome
 
+
 # Model for Service Order
 class OrdemServico(models.Model):
     tecnico = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
