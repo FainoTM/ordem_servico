@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ordens de Serviço</title>
+    <link href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B5E3C;
+            --secondary-color: #D7B49E;
+            --accent-color: #F4EBD0;
+            --text-color: #4B3621;
+        }
+
+        body {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Assistência Técnica - Ordens de Serviço</h1>
+    <p>Visualize e gerencie suas ordens de serviço de maneira fácil e rápida.</p>
+</header>
+
+<main class="container">
+    <h2>Ordens de Serviço</h2>
+    <ul>
+        {% for os in object_list %}
+            <li>
+                <a href="{% url 'ordem_servico_detail' os.pk %}">
+                    Ordem de Serviço #{{ os.id }} - Cliente: {{ os.cliente.nome }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
+
+<footer style="text-align: center; margin-top: 4rem;">
+    <p>&copy; 2024 Assistência Técnica. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

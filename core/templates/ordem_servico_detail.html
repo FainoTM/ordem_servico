@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Ordem de Serviço</title>
+    <link href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B5E3C;
+            --secondary-color: #D7B49E;
+            --accent-color: #F4EBD0;
+            --text-color: #4B3621;
+        }
+
+        body {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Assistência Técnica - Detalhes da Ordem de Serviço</h1>
+    <p>Confira as informações completas da ordem de serviço.</p>
+</header>
+
+<main class="container">
+    <h2>Detalhes da Ordem de Serviço #{{ object.id }}</h2>
+    <p><strong>Cliente:</strong> {{ object.cliente.nome }}</p>
+    <p><strong>Técnico:</strong> {{ object.tecnico.nome }}</p>
+    <p><strong>Descrição do Problema:</strong> {{ object.descricao_problema }}</p>
+    <p><strong>Data:</strong> {{ object.data }}</p>
+    <p><strong>Valor Total:</strong> R$ {{ object.valor_total }}</p>
+</main>
+
+<footer style="text-align: center; margin-top: 4rem;">
+    <p>&copy; 2024 Assistência Técnica. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

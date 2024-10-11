@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência Técnica - Cadastro de Ordem de Serviço</title>
+    <link href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B5E3C;
+            --secondary-color: #D7B49E;
+            --accent-color: #F4EBD0;
+            --text-color: #4B3621;
+        }
+
+        body {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Assistência Técnica - Cadastro de Ordem de Serviço</h1>
+    <p>Cadastre uma nova ordem de serviço, incluindo os produtos necessários.</p>
+</header>
+
+<main class="container">
+    <section id="cadastro-ordem-servico" class="form-container">
+        <h2>Cadastro de Nova Ordem de Serviço</h2>
+        <form method="post" action="{% url 'ordem_servico_create' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <h3>Adicionar Produtos à Ordem de Serviço</h3>
+            <div id="produtos-section">
+                <div class="produto-item">
+                    <label for="produto">Produto:</label>
+                    <select id="produto" name="produto">
+                        {% for produto in produtos %}
+                            <option value="{{ produto.id }}">{{ produto.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" min="1" required>
+                </div>
+            </div>
+
+            <button type="button" onclick="adicionarProduto()" class="btn btn-secondary">Adicionar Mais Produto</button>
+            <button type="submit" class="btn btn-primary">Cadastrar Ordem de Serviço</button>
+        </form>
+    </section>
+</main>
+
+<footer style="text-align: center; margin-top: 4rem;">
+    <p>&copy; 2024 Assistência Técnica. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function adicionarProduto() {
+        const produtosSection = document.getElementById('produtos-section');
+        const novoProduto = document.querySelector('.produto-item').cloneNode(true);
+        produtosSection.appendChild(novoProduto);
+    }
+</script>
+</body>
+</html>

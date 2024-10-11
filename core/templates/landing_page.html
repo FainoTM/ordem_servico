@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência Técnica - Painel Administrativo</title>
+    <link href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B5E3C;
+            --secondary-color: #D7B49E;
+            --accent-color: #F4EBD0;
+            --text-color: #4B3621;
+        }
+
+        body {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Assistência Técnica - Painel Administrativo</h1>
+    <p>Automatize o processo de gestão da sua assistência técnica com facilidade.</p>
+</header>
+
+<main class="container">
+    <section class="card-container">
+        <div class="card">
+            <h3>Funcionários</h3>
+            <p>Gerencie e cadastre novos funcionários.</p>
+            <a href="{% url 'funcionario_create' %}" class="btn btn-primary">Cadastrar Funcionário</a>
+        </div>
+
+        <div class="card">
+            <h3>Clientes</h3>
+            <p>Cadastre novos clientes para abrir ordens de serviço.</p>
+            <a href="{% url 'cliente_create' %}" class="btn btn-primary">Cadastrar Cliente</a>
+        </div>
+
+        <div class="card">
+            <h3>Fornecedores</h3>
+            <p>Cadastre fornecedores que vendem peças de reposição.</p>
+            <a href="{% url 'fornecedor_create' %}" class="btn btn-primary">Cadastrar Fornecedor</a>
+        </div>
+
+        <div class="card">
+            <h3>Ordens de Serviço</h3>
+            <p>Abra novas ordens de serviço e gerencie as existentes.</p>
+            <a href="{% url 'ordem_servico_create' %}" class="btn btn-primary">Abrir Ordem de Serviço</a>
+            <a href="{% url 'ordem_servico_list' %}" class="btn btn-secondary">Ver Ordens de Serviço</a>
+        </div>
+
+        <div class="card">
+            <h3>Produtos em Estoque</h3>
+            <p>Gerencie o estoque de produtos e cadastre novos itens.</p>
+            <a href="{% url 'produto_create' %}" class="btn btn-primary">Cadastrar Produto</a>
+        </div>
+    </section>
+</main>
+
+<footer style="text-align: center; margin-top: 4rem;">
+    <p>&copy; 2024 Assistência Técnica. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
