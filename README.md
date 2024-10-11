@@ -4,7 +4,18 @@ Para o funcionamento do código é necessário, baixar os requirements em um amb
 
 `pip install -r requirements.txt`
 
-Se criado, deve ser atualizado o arquivo my.cnf com as informações do seu banco local.
+Quando criado, deve ser atualizado o arquivo my.cnf com as informações do seu banco local.
+
+Se não tiver criado o banco mysql, deve ser criado:
+
+`create database nome_do_banco`
+
+Após isso deve ser realizado as migrações
+
+`python manage.py makemigrations`
+
+`python manage.py migrate`
+
 Também é necessário a criação de um super usuário do django
 
 `python manage.py createsuperuser`
